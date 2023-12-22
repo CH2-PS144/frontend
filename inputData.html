@@ -1,84 +1,120 @@
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="css/style.css">
-            <script src="https://cdn.tiny.cloud/1/t9ic47z4f7ypgskd4zyzrsaq6s2hy65s1hmm7srdi454az2z/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-            <title>Document</title>
-        </head>
-        <body>
-        <div class="container mt-5">
-        <!--    <div class="header text-end mt-3">-->
-        <!--        <button type="button" class="btn btn-danger" onclick="logout()">Logout</button>-->
-        <!--    </div>-->
-
-            <div class="dashboard">
-                <div class="dashboard-section">
-                    <h2>Data Kelas</h2>
-                    <form id="classForm">
-                        <div class="form-group">
-                            <label for="className">Input Nama Kelas:</label>
-                            <input type="text" class="form-control" id="className" required>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="addClass()">Tambahkan</button>
-                    </form>
-                    <div class="class-list mt-4">
-                        <h4>List Kelas</h4>
-                        <ul id="classList" class="list-group"></ul>
-                    </div>
-                </div>
-                <div class="dashboard-section">
-                    <h2>Data Materi</h2>
-                    <div class="form-group">
-                        <label for="classDropdown">Pilih Kelas:</label>
-                        <select class="form-control" id="classDropdown"></select>
-                    </div>
-                    <form id="materialForm">
-                        <div class="form-group">
-                            <label for="materialName">Nama Materi:</label>
-                            <input type="text" class="form-control" id="materialName" required>
-                            <input type="hidden" id="classIdHidden" value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="materialContent">Isi Materi:</label>
-                            <textarea class="form-control" id="materialContent" rows="3" required></textarea>
-                        </div>
-                        <button type="button" class="btn btn-primary" onclick="addMaterial()">Tambahkan</button>
-                        <button type="button" class="btn btn-warning" onclick="updateMaterial()">Ubah</button>
-
-                        <input type="hidden" id="materialIdHidden" value="">
-                    </form>
-                    <div class="material-list mt-4">
-                        <h4>List Materi</h4>
-                        <ul id="materialList" class="list-group"></ul>
-                    </div>
-                </div>
-                <div class="dashboard-section">
-                    <h2>Data Pertanyaan</h2>
-                    <form id="questionForm">
-                        <div class="form-group">
-                            <label for="materialDropdown">Pilih Materi</label>
-                            <select class="form-control" id="materialDropdown"></select>
-                        </div>
-                        <div class="form-group">
-                            <label for="questionText">Pertanyaan:</label>
-                            <input type="text" class="form-control" id="questionText" required>
-                        </div>
-                        <div class="form-group" id="options">
-                            <label>Pilihan:</label>
-                        </div>
-
-                        <button type="button" class="btn btn-success" onclick="addOption()">+ Pilihan</button>
-                        <button type="button" class="btn btn-primary" onclick="addQuestion()">Simpan</button>
-                    </form>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://cdn.tiny.cloud/1/t9ic47z4f7ypgskd4zyzrsaq6s2hy65s1hmm7srdi454az2z/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="dashboard">
+        <div class="dashboard-section">
+          <h2>Data Kelas</h2>
+          <form id="classForm">
+            <div class="form-group">
+              <label for="className">Input Nama Kelas:</label>
+              <input type="text" class="form-control" id="className" required />
             </div>
+            <button type="button" class="btn btn-primary" onclick="addClass()">
+              Tambahkan
+            </button>
+          </form>
+          <div class="class-list mt-4">
+            <h4>List Kelas</h4>
+            <ul id="classList" class="list-group"></ul>
+          </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="js/login.js"></script>
-        <script src="js/class.js"></script>
-        <script src="js/materials.js"></script>
-        <script src="js/quiz.js"></script>
-        </body>
-        </html>
+        <div class="dashboard-section">
+          <h2>Data Materi</h2>
+          <div class="form-group">
+            <label for="classDropdown">Pilih Kelas:</label>
+            <select class="form-control" id="classDropdown"></select>
+          </div>
+          <form id="materialForm">
+            <div class="form-group">
+              <label for="materialName">Nama Materi:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="materialName"
+                required
+              />
+              <input type="hidden" id="classIdHidden" value="" />
+            </div>
+            <div class="form-group">
+              <label for="materialContent">Isi Materi:</label>
+              <textarea
+                class="form-control"
+                id="materialContent"
+                rows="3"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="addMaterial()"
+            >
+              Tambahkan
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="updateMaterial()"
+            >
+              Ubah
+            </button>
+
+            <input type="hidden" id="materialIdHidden" value="" />
+          </form>
+          <div class="material-list mt-4">
+            <h4>List Materi</h4>
+            <ul id="materialList" class="list-group"></ul>
+          </div>
+        </div>
+        <div class="dashboard-section">
+          <h2>Data Pertanyaan</h2>
+          <form id="questionForm">
+            <div class="form-group">
+              <label for="materialDropdown">Pilih Materi</label>
+              <select class="form-control" id="materialDropdown"></select>
+            </div>
+            <div class="form-group">
+              <label for="questionText">Pertanyaan:</label>
+              <input
+                type="text"
+                class="form-control"
+                id="questionText"
+                required
+              />
+            </div>
+            <div class="form-group" id="options">
+              <label>Pilihan:</label>
+            </div>
+
+            <button type="button" class="btn btn-success" onclick="addOption()">
+              + Pilihan
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="addQuestion()"
+            >
+              Simpan
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/class.js"></script>
+    <script src="js/materials.js"></script>
+    <script src="js/quiz.js"></script>
+  </body>
+</html>
